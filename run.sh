@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-echo "[+] Subindo containers..."
+podman run -d \
+  --name mysql-db \
+  -e MYSQL_ROOT_PASSWORD=root123 \
+  -e MYSQL_DATABASE=storage \
+  -p 3306:3306 \
+  -v ./mysql_data:/var/lib/mysql \
+  docker.io/library/mysql:8.0
 
-podman-compose up -d --build
-
-echo "[+] Aguardando MySQL iniciar..."
-sleep 10
-
-echo "[+] Containers rodando:"
-podman ps
-
-echo "[+] Flask disponível em: http://localhost:5000"
+podman exec -it mysql-db bash
