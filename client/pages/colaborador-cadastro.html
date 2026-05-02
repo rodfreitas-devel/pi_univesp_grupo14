@@ -11,80 +11,8 @@
       rel="stylesheet"
     />
 
-    <style>
-      body {
-        background-color: #fff;
-      }
-
-      .purple-bar {
-        background-color: purple;
-        height: 10px;
-      }
-
-      .btn-cancel {
-        background-color: #f8a1a1;
-        border: none;
-        color: white;
-      }
-
-      .btn-save {
-        background-color: #28a745;
-        border: none;
-        color: white;
-      }
-
-      .navbar-custom {
-        border-bottom: 1px solid;
-        background-color: #fefae0;
-      }
-
-      .navbar .btn {
-        padding: 5px 12px;
-      }
-
-      .btn-dropdown-green {
-        background-color: #1f4d2e;
-        border: none;
-        color: white;
-      }
-
-      /* Hover */
-      .btn-dropdown-green:hover {
-        background-color: #163a23;
-        color: white;
-      }
-
-      /* Quando clica (active) */
-      .btn-dropdown-green:active {
-        background-color: #163a23 !important;
-        color: white !important;
-      }
-
-      /* Quando está focado (clique ou teclado) */
-      .btn-dropdown-green:focus,
-      .btn-dropdown-green:focus-visible {
-        background-color: #1f4d2e !important;
-        color: white !important;
-        box-shadow: none !important;
-      }
-
-      /* Quando o dropdown estiver aberto e o botão estiver ativo (evitar transparência) */
-      .btn-dropdown-green.dropdown-toggle:focus {
-        background-color: #1f4d2e !important;
-        color: white !important;
-        border-color: #1f4d2e !important;
-      }
-
-      .navbar-toggler {
-        border: none;
-      }
-
-      .badge {
-        background-color: purple;
-        border: none;
-        color: white;
-      }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/colaborador-cadastro.css" />
   </head>
 
   <body>
@@ -109,7 +37,7 @@
       <!-- MENU -->
       <div class="collapse navbar-collapse ms-3" id="menu">
         <ul class="navbar-nav me-auto gap-2">
-          <!-- Dropdown 1 -->
+          <!-- Dropdown Colaborador -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -120,13 +48,23 @@
                 Colaborador
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Novo cadastro</a></li>
-                <li><a class="dropdown-item" href="#">Colaboradores</a></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../pages/colaborador-cadastro.html"
+                    >Novo cadastro</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../pages/colaboradores.html"
+                    >Colaboradores</a
+                  >
+                </li>
               </ul>
             </div>
           </li>
 
-          <!-- Dropdown 2 -->
+          <!-- Dropdown Escala -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -143,7 +81,7 @@
             </div>
           </li>
 
-          <!-- Dropdown 3 -->
+          <!-- Dropdown Férias -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -160,7 +98,7 @@
             </div>
           </li>
 
-          <!-- Botão normal -->
+          <!-- Botão Indicadores -->
           <li class="nav-item">
             <a class="btn btn-dropdown-green" href="#">Indicadores</a>
           </li>
