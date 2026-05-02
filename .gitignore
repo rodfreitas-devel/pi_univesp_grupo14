@@ -17,3 +17,7 @@ old
 .gitignore
 Dockerfile
 .venv
+*.pyc
+__pycache__/
+.env
+*.log
