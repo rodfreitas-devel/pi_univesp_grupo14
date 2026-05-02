@@ -6,3 +6,7 @@ estrutura.txt
 static
 templates
 sha256sum.txt
+mysql_data/
+podman-compose.yml
+Dockerfile
+run2.sh
