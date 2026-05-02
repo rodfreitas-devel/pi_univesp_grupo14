@@ -1,0 +1,43 @@
+body {
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container {
+  padding: 100px;
+  flex: 1;
+}
+
+.login-image {
+  background: url("https://alunounivespbr-my.sharepoint.com/:i:/r/personal/24225635_aluno_univesp_br/Documents/PI/JI110%20-%20A2026S1N3%20-%20Grupo%2014/Logo/talentum-rh.jpeg?csf=1&web=1&e=Bmsog8")
+    no-repeat center center;
+  background-size: cover;
+  height: 400px;
+  width: 600px;
+  border-radius: 20px;
+}
+
+.btn-custom {
+  background-color: #90ee90;
+  border: none;
+}
+
+.btn-custom:hover {
+  background-color: #7edc7e;
+}
+
+footer {
+  background-color: purple;
+  color: white;
+  text-align: center;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  margin: 0;
+}

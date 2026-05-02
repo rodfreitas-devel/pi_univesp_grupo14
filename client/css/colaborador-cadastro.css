@@ -1,0 +1,68 @@
+body {
+  background-color: #fff;
+}
+
+.purple-bar {
+  background-color: purple;
+  height: 10px;
+}
+
+.btn-cancel {
+  background-color: #f8a1a1;
+  border: none;
+  color: white;
+}
+
+.btn-save {
+  background-color: #28a745;
+  border: none;
+  color: white;
+}
+
+.navbar-custom {
+  border-bottom: 1px solid;
+  background-color: #fefae0;
+}
+
+.navbar .btn {
+  padding: 5px 12px;
+}
+
+.btn-dropdown-green {
+  background-color: #1f4d2e;
+  border: none;
+  color: white;
+}
+
+.btn-dropdown-green:hover {
+  background-color: #163a23;
+  color: white;
+}
+
+.btn-dropdown-green:active {
+  background-color: #163a23 !important;
+  color: white !important;
+}
+
+.btn-dropdown-green:focus,
+.btn-dropdown-green:focus-visible {
+  background-color: #1f4d2e !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.btn-dropdown-green.dropdown-toggle:focus {
+  background-color: #1f4d2e !important;
+  color: white !important;
+  border-color: #1f4d2e !important;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.badge {
+  background-color: purple;
+  border: none;
+  color: white;
+}
