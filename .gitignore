@@ -3,3 +3,5 @@ SQLite3_0611-0.0.1.tar.gz
 app.py
 estrutura.txt
 .gitignore
+static
+templates
