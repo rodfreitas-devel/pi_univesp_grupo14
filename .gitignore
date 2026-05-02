@@ -12,3 +12,5 @@ run.sh.old
 old/
 script.sh
 .venv
+Dockerfile
+old
