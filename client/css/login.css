@@ -11,7 +11,7 @@ body {
 }
 
 .login-image {
-  background: url("https://alunounivespbr-my.sharepoint.com/:i:/r/personal/24225635_aluno_univesp_br/Documents/PI/JI110%20-%20A2026S1N3%20-%20Grupo%2014/Logo/talentum-rh.jpeg?csf=1&web=1&e=Bmsog8")
+  background: url("https://raw.githubusercontent.com/rodfreitas-devel/pi_univesp_grupo14/main/client/Assets/talentum-rh.jpeg")
     no-repeat center center;
   background-size: cover;
   height: 400px;
