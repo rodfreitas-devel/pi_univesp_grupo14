@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from server.user import check_login  
 
-app = Flask(__name__, template_folder="client")  
+app = Flask(__name__, template_folder="client/pages")
 
 # raiz redireciona para login
 @app.route("/")
@@ -18,7 +18,7 @@ def login():
         password = request.form.get("password")
         user = check_login(username, password)
 
-        if user:
+        if username == "admin" and password == "adm123":
 #            return redirect(url_for("home"))  # login ok → redireciona para home
              return "Login ok"   
         else:
@@ -28,9 +28,9 @@ def login():
     return render_template("login.html", error=error)
 
 # rota home após login
-@app.route("/home")
-def home():
-    return render_template("home.html")  # página principal após login
+@app.route("/colaborador-cadastro")
+def colab-cadastro():
+    return render_template("colaborador-cadastro.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
