@@ -1,12 +1,5 @@
 # Controle de RH
 
-Aplicação de controle de RH, que gera faltas, atestados, faltas, dados de absenteísmo e
-_turnover_, com geração de gráficos.
-
----
-
-# Controle de RH
-
 Aplicação de controle de Recursos Humanos (RH) voltada para o gerenciamento de faltas, 
 atestados, dados de absenteísmo e turnover, com geração de gráficos para análise e tomada 
 de decisão.
@@ -29,7 +22,6 @@ de decisão.
 - **Banco de Dados:** MySQL
 - **Frontend:** HTML/CSS/JS (ou outro framework se houver)
 - **Containerização (opcional):** Podman / Docker
-- **Gráficos:** Matplotlib / Plotly / Seaborn (dependendo da implementação)
 
 ---
 
