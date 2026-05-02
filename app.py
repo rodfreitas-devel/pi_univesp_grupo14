@@ -29,7 +29,7 @@ def login():
 
 # rota home após login
 @app.route("/colaborador-cadastro")
-def colab-cadastro():
+def colab_cadastro():
     return render_template("colaborador-cadastro.html")
 
 if __name__ == "__main__":
