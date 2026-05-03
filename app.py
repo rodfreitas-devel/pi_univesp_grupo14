@@ -1,37 +1,42 @@
 from flask import Flask, render_template, request, redirect, url_for
-from server.user import check_login  
+from server.user import check_login
 
-app = Flask(__name__, template_folder="client/pages")
 
-# raiz redireciona para login
+app = Flask(__name__, template_folder="client/pages", static_folder="client/static")
+
+
 @app.route("/")
 @app.route("/index")
 def index():
     return redirect(url_for("login"))
 
-# rota de login
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     error = None
     if request.method == "POST":
-        username = request.form.get("username")
+        username = request.form.get("user")
         password = request.form.get("password")
+
+        # Validação real via DB
         user = check_login(username, password)
 
-        if username == "admin" and password == "adm123":
-#            return redirect(url_for("home"))  # login ok → redireciona para home
-             return "Login ok"   
-        else:
-            #error = "Usuário ou senha inválidos"
-            return "usuário ou senha inválidos"
+        if user:
+            # Redireciona para o nome da FUNÇÃO da rota desejada
+            return redirect(url_for("colab_cadastro"))
+
+        error = "Credenciais inválidas. Tente novamente."
+    else:
+        print("Login Falhou!")  # DEBUG
 
     return render_template("login.html", error=error)
 
-# rota home após login
+
 @app.route("/colaborador-cadastro")
 def colab_cadastro():
+    # Certifique-se que este arquivo está em client/pages/
     return render_template("colaborador-cadastro.html")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
-
