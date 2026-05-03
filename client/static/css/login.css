@@ -1,41 +1,59 @@
 body {
-  background-color: #ffffff;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.login-container {
-  padding: 100px;
-  flex: 1;
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
 }
 
 .login-image {
   background: url("https://raw.githubusercontent.com/rodfreitas-devel/pi_univesp_grupo14/main/client/Assets/talentum-rh.jpeg")
     no-repeat center center;
   background-size: cover;
-  height: 400px;
-  width: 600px;
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
   border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.form-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-card h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .btn-custom {
-  background-color: #90ee90;
+  background-color: #2e7d32;
+  color: white;
   border: none;
 }
 
 .btn-custom:hover {
-  background-color: #7edc7e;
+  background-color: #1b5e20;
+  color: white;
 }
 
 footer {
-  background-color: purple;
+  background-color: #6a1b9a;
   color: white;
   text-align: center;
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 footer p {
