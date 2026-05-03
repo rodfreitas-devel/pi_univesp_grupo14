@@ -16,7 +16,7 @@ def login():
     error = None
     if request.method == "POST":
         username = request.form.get("user")
-        password = request.form.get("password")
+        password: str | None = request.form.get("password")
 
         # Validação real via DB
         user = check_login(username, password)
@@ -34,7 +34,6 @@ def login():
 
 @app.route("/colaborador-cadastro")
 def colab_cadastro():
-    # Certifique-se que este arquivo está em client/pages/
     return render_template("colaborador-cadastro.html")
 
 
