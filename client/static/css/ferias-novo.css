@@ -40,48 +40,21 @@ body {
   border-radius: 8px;
 }
 
-/* INPUT */
-.form-control,
-.form-select {
-  height: 45px;
-}
-
+/* FORM */
 .form-label {
   font-weight: 600;
 }
 
-/* TABELA */
-.table {
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.table thead {
-  background-color: #6f42c1;
-  color: white;
-}
-
-.table-striped > tbody > tr:nth-of-type(odd) > * {
-  background-color: #f8f9fa;
+.form-select,
+.form-control {
+  height: 45px;
 }
 
 /* BOTÕES */
-.btn-save {
-  background-color: #198754;
-  color: white;
-  width: 120px;
-}
-
-.btn-save:hover {
-  background-color: #157347;
-  color: white;
-}
-
 .btn-cancel {
   background-color: #dc3545;
   color: white;
-  width: 120px;
+  width: 140px;
 }
 
 .btn-cancel:hover {
@@ -89,21 +62,13 @@ body {
   color: white;
 }
 
-/* MODAL */
-.modal-content {
-  border-radius: 12px;
-}
-
-.modal-header {
-  background-color: #6f42c1;
+.btn-save {
+  background-color: #198754;
   color: white;
+  width: 140px;
 }
 
-.btn-close {
-  filter: brightness(0) invert(1);
-}
-
-.list-group-item {
-  border-radius: 6px;
-  margin-top: 5px;
+.btn-save:hover {
+  background-color: #157347;
+  color: white;
 }

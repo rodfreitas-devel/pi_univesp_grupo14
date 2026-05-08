@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <title>Cadastro de Escala</title>
+    <title>Cadastro de Férias</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap -->
@@ -12,13 +12,13 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../static/css/escala-novo.css" />
+    <link rel="stylesheet" href="../static/css/ferias-novo.css" />
   </head>
 
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom px-3">
-      <a class="navbar-brand ms-3" href="../pages/home.html"> TALENTUM RH </a>
+      <a class="navbar-brand ms-3" href="../pages/home.html">TALENTUM RH</a>
 
       <button
         class="navbar-toggler ms-auto"
@@ -31,7 +31,6 @@
 
       <div class="collapse navbar-collapse ms-3" id="menu">
         <ul class="navbar-nav me-auto gap-2">
-          <!-- Colaborador -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -43,27 +42,21 @@
 
               <ul class="dropdown-menu">
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="../pages/colaborador-novo.html"
+                  <a class="dropdown-item" href="../pages/colaborador-novo.html"
+                    >Novo cadastro</a
                   >
-                    Novo cadastro
-                  </a>
                 </li>
-
                 <li>
                   <a
                     class="dropdown-item"
                     href="../pages/colaborador-lista.html"
+                    >Lista</a
                   >
-                    Lista
-                  </a>
                 </li>
               </ul>
             </div>
           </li>
 
-          <!-- Escala -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -75,21 +68,19 @@
 
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-novo.html">
-                    Novo cadastro
-                  </a>
+                  <a class="dropdown-item" href="../pages/escala-novo.html"
+                    >Novo cadastro</a
+                  >
                 </li>
-
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-lista.html">
-                    Lista
-                  </a>
+                  <a class="dropdown-item" href="../pages/escala-lista.html"
+                    >Lista</a
+                  >
                 </li>
               </ul>
             </div>
           </li>
 
-          <!-- Férias -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -101,21 +92,17 @@
 
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/ferias-novo.html">
-                    Novo cadastro
-                  </a>
+                  <a class="dropdown-item" href="../pages/ferias-novo.html"
+                    >Novo cadastro</a
+                  >
                 </li>
-
-                <li>
-                  <a class="dropdown-item" href="#"> Lista </a>
-                </li>
+                <li><a class="dropdown-item" href="#">Lista</a></li>
               </ul>
             </div>
           </li>
 
-          <!-- Indicadores -->
           <li class="nav-item">
-            <a class="btn btn-dropdown-green" href="#"> Indicadores </a>
+            <a class="btn btn-dropdown-green" href="#">Indicadores</a>
           </li>
         </ul>
       </div>
@@ -127,73 +114,49 @@
     <!-- TÍTULO -->
     <div class="container d-flex justify-content-center mt-5">
       <h4>
-        <span class="badge"> Escala > Novo cadastro </span>
+        <span class="badge">Férias > Novo cadastro</span>
       </h4>
     </div>
 
     <!-- FORMULÁRIO -->
     <div class="container d-flex justify-content-center mt-4">
-      <form id="formEscala" class="row g-4 w-75">
+      <form id="formFerias" class="row g-4 w-75">
         <!-- Colaborador -->
         <div class="col-12 d-flex justify-content-center">
           <div class="w-100 w-md-50">
-            <label class="form-label"> Colaborador </label>
+            <label class="form-label"> Selecionar pessoa colaboradora </label>
 
-            <select class="form-select" id="colaborador">
+            <select class="form-select">
               <option value="">Selecione</option>
-              <option>João</option>
-              <option>Maria</option>
-              <option>Carlos</option>
+              <option>João Silva</option>
+              <option>Maria Souza</option>
+              <option>Carlos Oliveira</option>
             </select>
           </div>
         </div>
 
-        <!-- Jornada -->
+        <!-- Data de início -->
         <div class="col-12 d-flex justify-content-center">
           <div class="w-100 w-md-50">
-            <label class="form-label"> Quantidade de horas </label>
+            <label class="form-label">Data de início</label>
 
-            <select class="form-select" id="jornada">
-              <option value="">Selecione</option>
-              <option>4h</option>
-              <option>6h</option>
-              <option>8h</option>
-              <option>12h</option>
-            </select>
-
-            <button
-              type="button"
-              class="btn btn-outline-primary mt-3"
-              onclick="adicionarJornada()"
-            >
-              Adicionar Jornada
-            </button>
-
-            <div id="jornadaSelecionada" class="mt-3"></div>
+            <input type="date" class="form-control" />
           </div>
         </div>
 
-        <!-- Turno -->
+        <!-- Quantidade de dias -->
         <div class="col-12 d-flex justify-content-center">
           <div class="w-100 w-md-50">
-            <label class="form-label"> Turno </label>
+            <label class="form-label">Quantidade de dias</label>
 
-            <select class="form-select" id="turno">
+            <select class="form-select">
               <option value="">Selecione</option>
-              <option>Manhã</option>
-              <option>Tarde</option>
-              <option>Noite</option>
+              <option>5 dias</option>
+              <option>10 dias</option>
+              <option>15 dias</option>
+              <option>20 dias</option>
+              <option>30 dias</option>
             </select>
-
-            <button
-              type="button"
-              class="btn btn-outline-success mt-3"
-              onclick="adicionarTurno()"
-            >
-              Adicionar Turno
-            </button>
-
-            <ul id="listaTurnos" class="list-group mt-3"></ul>
           </div>
         </div>
       </form>
@@ -202,20 +165,17 @@
     <!-- BOTÕES FIXOS -->
     <div class="fixed-bottom bg-white border-top p-3">
       <div class="container d-flex justify-content-center gap-3">
-        <button type="reset" form="formEscala" class="btn btn-cancel">
+        <button type="reset" form="formFerias" class="btn btn-cancel">
           Cancelar
         </button>
 
-        <button type="submit" form="formEscala" class="btn btn-save">
+        <button type="submit" form="formFerias" class="btn btn-save">
           Salvar
         </button>
       </div>
     </div>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JS -->
-    <script src="../static/js/escala-novo.js"></script>
   </body>
 </html>

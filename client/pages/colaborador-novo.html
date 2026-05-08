@@ -13,18 +13,12 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../static/css/colaborador-novo.css" />
-
-    <style>
-      body {
-        padding-bottom: 100px; /* evita conteúdo ficar atrás dos botões */
-      }
-    </style>
   </head>
 
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom px-3">
-      <a class="navbar-brand ms-3" href="../pages/home.html">TALENTUM RH</a>
+      <a class="navbar-brand ms-3" href="../pages/home.html"> TALENTUM RH </a>
 
       <button
         class="navbar-toggler ms-auto"
@@ -37,6 +31,7 @@
 
       <div class="collapse navbar-collapse ms-3" id="menu">
         <ul class="navbar-nav me-auto gap-2">
+          <!-- Colaborador -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -45,23 +40,30 @@
               >
                 Colaborador
               </a>
+
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/colaborador-novo.html"
-                    >Novo cadastro</a
+                  <a
+                    class="dropdown-item"
+                    href="../pages/colaborador-novo.html"
                   >
+                    Novo cadastro
+                  </a>
                 </li>
+
                 <li>
                   <a
                     class="dropdown-item"
                     href="../pages/colaborador-lista.html"
-                    >Lista</a
                   >
+                    Lista
+                  </a>
                 </li>
               </ul>
             </div>
           </li>
 
+          <!-- Escala -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -70,21 +72,24 @@
               >
                 Escala
               </a>
+
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-novo.html"
-                    >Novo cadastro</a
-                  >
+                  <a class="dropdown-item" href="../pages/escala-novo.html">
+                    Novo cadastro
+                  </a>
                 </li>
+
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-lista.html"
-                    >Lista</a
-                  >
+                  <a class="dropdown-item" href="../pages/escala-lista.html">
+                    Lista
+                  </a>
                 </li>
               </ul>
             </div>
           </li>
 
+          <!-- Férias -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -93,15 +98,24 @@
               >
                 Férias
               </a>
+
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Novo Cadastro</a></li>
-                <li><a class="dropdown-item" href="#">Lista</a></li>
+                <li>
+                  <a class="dropdown-item" href="../pages/ferias-novo.html">
+                    Novo Cadastro
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#"> Lista </a>
+                </li>
               </ul>
             </div>
           </li>
 
+          <!-- Indicadores -->
           <li class="nav-item">
-            <a class="btn btn-dropdown-green" href="#">Indicadores</a>
+            <a class="btn btn-dropdown-green" href="#"> Indicadores </a>
           </li>
         </ul>
       </div>
@@ -113,7 +127,7 @@
     <!-- TÍTULO -->
     <div class="container d-flex justify-content-center mt-5">
       <h4>
-        <span class="badge">Colaborador > Novo cadastro</span>
+        <span class="badge"> Colaborador > Novo cadastro </span>
       </h4>
     </div>
 
@@ -122,57 +136,77 @@
       class="container d-flex justify-content-center align-items-center mt-4"
       style="min-height: 70vh"
     >
-      <form id="formColaborador" class="row g-3 w-75">
+      <form id="formColaborador" class="row g-4 w-75">
+        <!-- Nome -->
         <div class="col-md-6">
-          <label class="form-label">Nome completo</label>
+          <label class="form-label"> Nome completo </label>
+
           <input type="text" class="form-control" />
         </div>
 
+        <!-- CPF -->
         <div class="col-md-3">
-          <label class="form-label">CPF</label>
+          <label class="form-label"> CPF </label>
+
           <input type="text" class="form-control" />
         </div>
 
+        <!-- Nascimento -->
         <div class="col-md-3">
-          <label class="form-label">Data de nascimento</label>
+          <label class="form-label"> Data de nascimento </label>
+
           <input type="date" class="form-control" />
         </div>
 
+        <!-- Sexo -->
         <div class="col-md-3">
-          <label class="form-label">Sexo</label>
+          <label class="form-label"> Sexo </label>
+
           <select class="form-select">
             <option>Masculino</option>
             <option>Feminino</option>
           </select>
         </div>
 
+        <!-- Filial -->
         <div class="col-md-3">
-          <label class="form-label">Filial</label>
+          <label class="form-label"> Filial </label>
+
           <input type="text" class="form-control" />
         </div>
 
+        <!-- Função -->
         <div class="col-md-3">
-          <label class="form-label">Função</label>
+          <label class="form-label"> Função </label>
+
           <input type="text" class="form-control" />
         </div>
 
+        <!-- Salário Mensal -->
         <div class="col-md-3">
-          <label class="form-label">Salário mensal</label>
+          <label class="form-label"> Salário mensal </label>
+
           <input type="number" class="form-control" />
         </div>
 
+        <!-- Salário Hora -->
         <div class="col-md-3">
-          <label class="form-label">Salário hora</label>
+          <label class="form-label"> Salário hora </label>
+
           <input type="number" class="form-control" />
         </div>
 
+        <!-- Admissão -->
         <div class="col-md-3">
-          <label class="form-label">Data de admissão</label>
+          <label class="form-label"> Data de admissão </label>
+
           <input type="date" class="form-control" />
         </div>
 
+        <!-- Demissão -->
         <div class="col-md-3">
-          <label class="form-label">Data de demissão</label>
+          <label class="form-label"> Data de demissão </label>
+
           <input type="date" class="form-control" />
         </div>
       </form>
@@ -184,13 +218,14 @@
         <button type="reset" form="formColaborador" class="btn btn-cancel">
           Cancelar
         </button>
+
         <button type="submit" form="formColaborador" class="btn btn-save">
           Salvar
         </button>
       </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

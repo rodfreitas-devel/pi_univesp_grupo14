@@ -19,7 +19,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom px-3">
       <!-- LOGO -->
-      <a class="navbar-brand ms-3" href="../pages/home.html">TALENTUM RH</a>
+      <a class="navbar-brand ms-3" href="../pages/home.html"> TALENTUM RH </a>
 
       <!-- TOGGLER -->
       <button
@@ -37,7 +37,7 @@
       <!-- MENU -->
       <div class="collapse navbar-collapse ms-3" id="menu">
         <ul class="navbar-nav me-auto gap-2">
-          <!-- Dropdown Colaborador -->
+          <!-- Colaborador -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -47,24 +47,30 @@
               >
                 Colaborador
               </a>
+
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/colaborador-novo.html"
-                    >Novo cadastro</a
+                  <a
+                    class="dropdown-item"
+                    href="../pages/colaborador-novo.html"
                   >
+                    Novo cadastro
+                  </a>
                 </li>
+
                 <li>
                   <a
                     class="dropdown-item"
                     href="../pages/colaborador-lista.html"
-                    >Lista</a
                   >
+                    Lista
+                  </a>
                 </li>
               </ul>
             </div>
           </li>
 
-          <!-- Dropdown Escala -->
+          <!-- Escala -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -74,22 +80,24 @@
               >
                 Escala
               </a>
+
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-novo.html"
-                    >Novo cadastro</a
-                  >
+                  <a class="dropdown-item" href="../pages/escala-novo.html">
+                    Novo cadastro
+                  </a>
                 </li>
+
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-lista.html"
-                    >Lista</a
-                  >
+                  <a class="dropdown-item" href="../pages/escala-lista.html">
+                    Lista
+                  </a>
                 </li>
               </ul>
             </div>
           </li>
 
-          <!-- Dropdown Férias -->
+          <!-- Férias -->
           <li class="nav-item">
             <div class="dropdown">
               <a
@@ -99,16 +107,24 @@
               >
                 Férias
               </a>
+
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Novo Cadastro</a></li>
-                <li><a class="dropdown-item" href="#">Lista</a></li>
+                <li>
+                  <a class="dropdown-item" href="../pages/ferias-novo.html">
+                    Novo Cadastro
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#"> Lista </a>
+                </li>
               </ul>
             </div>
           </li>
 
-          <!-- Botão Indicadores -->
+          <!-- Indicadores -->
           <li class="nav-item">
-            <a class="btn btn-dropdown-green" href="#">Indicadores</a>
+            <a class="btn btn-dropdown-green" href="#"> Indicadores </a>
           </li>
         </ul>
       </div>
@@ -118,33 +134,37 @@
     <div class="purple-bar"></div>
 
     <!-- TÍTULO -->
-
     <div class="container d-flex justify-content-center mt-5">
       <h4>
-        <span class="badge">Colaborador > Lista</span>
+        <span class="badge"> Colaborador > Lista </span>
       </h4>
     </div>
 
-    <!-- Barra de Pesquisa -->
-    <div class="container mt-4">
-      <input
-        type="text"
-        id="searchInput"
-        class="form-control"
-        placeholder="Pesquisar colaborador por nome..."
-        onkeyup="filterCollaborators()"
-      />
+    <!-- PESQUISA -->
+    <div class="container mt-4 d-flex justify-content-center">
+      <div class="w-75">
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control"
+          placeholder="Pesquisar colaborador por nome..."
+          onkeyup="filterCollaborators()"
+        />
+      </div>
     </div>
 
+    <!-- TABELA -->
     <div class="container mt-4">
-      <table class="table table-striped align-middle">
-        <tbody id="collaborators-list">
-          <!-- Lista será carregada aqui -->
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle shadow-sm">
+          <tbody id="collaborators-list">
+            <!-- Lista será carregada aqui -->
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- Modal de Edição -->
+    <!-- MODAL -->
     <div
       class="modal fade"
       id="editModal"
@@ -154,8 +174,10 @@
     >
       <div class="modal-dialog">
         <div class="modal-content">
+          <!-- HEADER -->
           <div class="modal-header">
             <h5 class="modal-title" id="editModalLabel">Editar Colaborador</h5>
+
             <button
               type="button"
               class="btn-close"
@@ -163,21 +185,30 @@
               aria-label="Close"
             ></button>
           </div>
+
+          <!-- BODY -->
           <div class="modal-body">
-            <!-- Formulário -->
             <form id="editForm">
+              <!-- Nome -->
               <div class="mb-3">
-                <label for="nome" class="form-label">Nome completo</label>
+                <label for="nome" class="form-label"> Nome completo </label>
+
                 <input type="text" class="form-control" id="nome" required />
               </div>
+
+              <!-- CPF -->
               <div class="mb-3">
-                <label for="cpf" class="form-label">CPF</label>
+                <label for="cpf" class="form-label"> CPF </label>
+
                 <input type="text" class="form-control" id="cpf" required />
               </div>
+
+              <!-- Nascimento -->
               <div class="mb-3">
-                <label for="nascimento" class="form-label"
-                  >Data de nascimento</label
-                >
+                <label for="nascimento" class="form-label">
+                  Data de nascimento
+                </label>
+
                 <input
                   type="date"
                   class="form-control"
@@ -185,25 +216,37 @@
                   required
                 />
               </div>
+
+              <!-- Sexo -->
               <div class="mb-3">
-                <label for="sexo" class="form-label">Sexo</label>
+                <label for="sexo" class="form-label"> Sexo </label>
+
                 <select class="form-select" id="sexo" required>
                   <option>Masculino</option>
                   <option>Feminino</option>
                 </select>
               </div>
+
+              <!-- Filial -->
               <div class="mb-3">
-                <label for="filial" class="form-label">Filial</label>
+                <label for="filial" class="form-label"> Filial </label>
+
                 <input type="text" class="form-control" id="filial" required />
               </div>
+
+              <!-- Função -->
               <div class="mb-3">
-                <label for="funcao" class="form-label">Função</label>
+                <label for="funcao" class="form-label"> Função </label>
+
                 <input type="text" class="form-control" id="funcao" required />
               </div>
+
+              <!-- Salário mensal -->
               <div class="mb-3">
-                <label for="salarioMensal" class="form-label"
-                  >Salário mensal</label
-                >
+                <label for="salarioMensal" class="form-label">
+                  Salário mensal
+                </label>
+
                 <input
                   type="number"
                   class="form-control"
@@ -211,8 +254,13 @@
                   required
                 />
               </div>
+
+              <!-- Salário hora -->
               <div class="mb-3">
-                <label for="salarioHora" class="form-label">Salário hora</label>
+                <label for="salarioHora" class="form-label">
+                  Salário hora
+                </label>
+
                 <input
                   type="number"
                   class="form-control"
@@ -220,10 +268,13 @@
                   required
                 />
               </div>
+
+              <!-- Admissão -->
               <div class="mb-3">
-                <label for="admissao" class="form-label"
-                  >Data de admissão</label
-                >
+                <label for="admissao" class="form-label">
+                  Data de admissão
+                </label>
+
                 <input
                   type="date"
                   class="form-control"
@@ -231,21 +282,27 @@
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="demissao" class="form-label"
-                  >Data de demissão</label
-                >
+
+              <!-- Demissão -->
+              <div class="mb-4">
+                <label for="demissao" class="form-label">
+                  Data de demissão
+                </label>
+
                 <input type="date" class="form-control" id="demissao" />
               </div>
+
+              <!-- BOTÕES -->
               <div class="d-flex justify-content-center gap-3">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn btn-cancel"
                   data-bs-dismiss="modal"
                 >
                   Cancelar
                 </button>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+
+                <button type="submit" class="btn btn-save">Salvar</button>
               </div>
             </form>
           </div>
@@ -253,8 +310,10 @@
       </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS -->
     <script src="../static/js/colaborador-lista.js"></script>
   </body>
 </html>
