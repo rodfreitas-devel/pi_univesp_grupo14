@@ -17,50 +17,65 @@
       rel="stylesheet"
     />
 
-    <!-- CSS -->  
+    <!-- CSS -->
     <link rel="stylesheet" href="../static/css/login.css" />
   </head>
 
   <body class="d-flex flex-column min-vh-100">
+    <div class="container-fluid flex-grow-1 d-flex align-items-center">
+      <div class="row w-100">
+        <!-- Lado esquerdo -->
+        <div
+          class="col-md-6 d-none d-md-flex justify-content-center align-items-center"
+        >
+          <div class="login-image"></div>
+        </div>
 
-  <div class="container-fluid flex-grow-1 d-flex align-items-center">
-    <div class="row w-100">
+        <!-- Lado direito -->
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+          <div class="form-card">
+            <h3 class="text-center">Login</h3>
 
-      <!-- Lado esquerdo -->
-      <div class="col-md-6 d-none d-md-flex justify-content-center align-items-center">
-        <div class="login-image"></div>
-      </div>
+            <!-- Mensagem de erro -->
+            {% if error %}
+            <div class="alert alert-danger mt-2">{{ error }}</div>
+            {% endif %}
 
-      <!-- Lado direito -->
-      <div class="col-md-6 d-flex justify-content-center align-items-center">
-        <div class="form-card">
-          <h3 class="text-center">Login</h3>
+            <!-- Formulário -->
+            <form method="POST" action="/login">
+              <div class="mb-3">
+                <label class="form-label">Usuário</label>
+                <input
+                  type="text"
+                  name="user"
+                  class="form-control"
+                  placeholder="Digite seu usuário"
+                  required
+                />
+              </div>
 
-          <form>
-            <div class="mb-3">
-              <label class="form-label">Usuário</label>
-              <input type="text" class="form-control" placeholder="Digite seu usuário" />
-            </div>
+              <div class="mb-4">
+                <label class="form-label">Senha</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Digite sua senha"
+                  required
+                />
+              </div>
 
-            <div class="mb-4">
-              <label class="form-label">Senha</label>
-              <input type="password" class="form-control" placeholder="Digite sua senha" />
-            </div>
-
-            <button type="submit" class="btn btn-custom w-100">
-              Acessar
-            </button>
-          </form>
+              <button type="submit" class="btn btn-custom w-100">
+                Acessar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
 
-  <footer>
-    <p>© 2026 - Todos os direitos reservados</p>
-  </footer>
-
-</body>
+    <footer class="text-center py-3">
+      <p>© 2026 - Todos os direitos reservados</p>
+    </footer>
   </body>
 </html>

@@ -18,7 +18,9 @@
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom px-3">
-      <a class="navbar-brand ms-3" href="../pages/home.html"> TALENTUM RH </a>
+      <a class="navbar-brand ms-3" href="{{ url_for('home') }}">
+        TALENTUM RH
+      </a>
 
       <button
         class="navbar-toggler ms-auto"
@@ -48,7 +50,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="../pages/colaborador-novo.html"
+                    href="{{ url_for('colaborador_novo') }}"
                   >
                     Novo cadastro
                   </a>
@@ -57,7 +59,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="../pages/colaborador-lista.html"
+                    href="{{ url_for('colaborador_lista') }}"
                   >
                     Lista
                   </a>
@@ -78,13 +80,13 @@
 
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-novo.html">
+                  <a class="dropdown-item" href="{{ url_for('escala_novo') }}">
                     Novo cadastro
                   </a>
                 </li>
 
                 <li>
-                  <a class="dropdown-item" href="../pages/escala-lista.html">
+                  <a class="dropdown-item" href="{{ url_for('escala_lista') }}">
                     Lista
                   </a>
                 </li>
@@ -104,7 +106,7 @@
 
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../pages/ferias-novo.html">
+                  <a class="dropdown-item" href="{{ url_for('ferias_novo') }}">
                     Novo Cadastro
                   </a>
                 </li>

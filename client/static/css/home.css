@@ -1,0 +1,41 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f6f9;
+}
+
+.home-image {
+  background: url("https://raw.githubusercontent.com/rodfreitas-devel/pi_univesp_grupo14/main/client/Assets/talentum-rh.jpeg")
+    no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.btn-custom {
+  background-color: #2e7d32;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.btn-custom:hover {
+  background-color: #1b5e20;
+  color: #fff;
+}
