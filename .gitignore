@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambiente virtual
+venv/
+.env/
+.venv/
+
+# Variáveis de ambiente
+.env
+
+# VS Code
+.vscode/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Banco SQLite (se usar)
+*.sqlite3
+
+# Build/cache
+dist/
+build/
+
+# Node modules (caso use futuramente)
+node_modules/
+
+# Arquivos temporários
+*.tmp
+*.swp
