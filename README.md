@@ -1,64 +1,132 @@
-# Controle de RH
+# Projeto acadêmico desenvolvido para fins educacionais.
 
-Aplicação de controle de Recursos Humanos (RH) voltada para o gerenciamento de faltas, 
-atestados, dados de absenteísmo e turnover, com geração de gráficos para análise e tomada 
-de decisão.
-
----
-
-## Funcionalidades
-
-- Registro de faltas e atestados de funcionários
-- Monitoramento de absenteísmo e frequência
-- Cálculo de indicadores de turnover
-- Visualização de dados em gráficos interativos
-- Exportação de relatórios para análise
+- Instituição: UNIVESP
+- Cursos: Engenharia da Computação e Ciência de Dados.
 
 ---
 
-## Tecnologias
+## SOBRE O PROJETO
+## Sistema de Gestão de Colaboradores (RH Fullstack)
 
-- **Backend:** Python (Flask)
-- **Banco de Dados:** MySQL
-- **Frontend:** HTML/CSS/JS (ou outro framework se houver)
-- **Containerização (opcional):** Podman / Docker
+O Sistema de Gestão de Colaboradores é uma aplicação web fullstack desenvolvida para o setor de Recursos Humanos, com o objetivo de centralizar e facilitar o gerenciamento de informações dos colaboradores de uma organização.
+
+A plataforma permite o controle de colaboradores, escalas de trabalho, férias e faltas, além da geração de indicadores estratégicos como turnover e absenteísmo, auxiliando na tomada de decisões da gestão.
 
 ---
 
-## Instalação e Execução
+## OBJETIVO
 
-### 1. Configurar MySQL
+Desenvolver uma solução web completa para RH que permita:
 
-```bash
-podman run -d \
-  --name mysql-db \
-  -e MYSQL_ROOT_PASSWORD=suaSenha \
-  -e MYSQL_DATABASE=storage \
-  -p 3306:3306 \
-  -v ./mysql_data:/var/lib/mysql \
-  docker.io/library/mysql:8.0
-```
+- Centralizar dados dos colaboradores
+- Automatizar processos administrativos
+- Melhorar a eficiência operacional do setor de RH
+- Gerar indicadores estratégicos para análise gerencial
 
-### 2. Rodar a aplicação Flask
-```bash
+---
+
+## FUNCIONALIDADES
+
+### Controle de Acesso
+
+- Login de usuários
+- Autenticação de acesso ao sistema
+
+### Gestão de Colaboradores
+
+- Cadastro de colaboradores
+- Listagem de colaboradores
+- Edição e manutenção de dados
+
+### Escala de Trabalho
+
+- Cadastro de escalas
+- Visualização de turnos
+
+### Controle de Férias
+
+- Solicitação de férias
+- Registro e acompanhamento
+
+### Controle de Faltas
+
+- Registro de ausências
+- Consulta de histórico
+
+### Indicadores de RH
+
+- Cálculo de turnover
+- Cálculo de absenteísmo
+- Visualização de dashboards
+
+---
+
+## TECNOLOGIAS UTILIZADAS
+
+### Banco de Dados
+
+- MySQL
+
+### Backend
+
+- Python3
+- Flask
+- PyMySQL
+
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+
+---
+
+## INSTALAÇÃO E EXECUÇÃO
+
+### Clonar o repositório
+
+- git clone https://github.com/rodfreitas-devel/pi_univesp_grupo14.git
+- cd pi_univesp_grupo14
+
+### Criar ambiente virtual
+
 python -m venv venv
+
+### Ativar no Windows
+
+venv\Scripts\activate
+
+### Ativar no Linux/MAC
+
 source venv/bin/activate
+
+### Instalar dependências
+
 pip install -r requirements.txt
-python app.py
-```
 
-- A aplicação estará disponível em http://localhost:5000
+---
 
-#### Uso
-- Acesse a interface web da aplicação
-- Cadastre funcionários, registre faltas e atestados
-- Visualize gráficos de absenteísmo e turnover
-- Gere relatórios para análise interna
+## CONFIGURAÇÃO DO BANCO DE DADOS
 
-#### Contribuição
-- Faça um fork do projeto
-- Crie um branch para sua feature: git checkout -b minha-feature
-- Faça commits claros e objetivos
-- Abra um Pull Request para revisão
+- Criar banco MySQL
+- Executar o arquivo dados.sql
+- Configurar variáveis de ambiente:
 
+### .env
 
+- DB_HOST=seu_host
+- DB_USER=seu_usuario
+- DB_PASSWORD=sua_senha
+- DB_NAME=nome_do_banco
+- DB_PORT=3306
+
+---
+
+## EXECUTAR O PROJETO
+python3 app.py
+
+---
+
+## DEPLOY
+O projeto foi publicado em Railway e pode ser acessado pelo seguinte link: https://piunivespgrupo14-production.up.railway.app
