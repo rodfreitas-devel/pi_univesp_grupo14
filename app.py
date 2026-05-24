@@ -1,12 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for
 from server.user import check_login
 from server.colaborador import salvar_colaborador as salvar_colaborador_db
+import os
+from dotenv import load_dotenv
 
 app = Flask(
     __name__,
     template_folder="client/pages",
     static_folder="client/static"
 )
+
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
+
 
 # -----------------------------
 # HOME
@@ -153,9 +158,12 @@ def login():
 # -----------------------------
 # MAIN
 # -----------------------------
+
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+
     app.run(
         host="0.0.0.0",
-        port=5000,
+        port=port,
         debug=True
     )

@@ -1,11 +1,13 @@
+import os
 import pymysql
 
 def get_connection():
     return pymysql.connect(
-        host="127.0.0.1",
-        user="usuario_app",
-        password="senha123",
-        database="pi_grupo14",
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
+        port=int(os.getenv("DB_PORT", 3306)),
         charset="utf8mb4",
-        cursorclass=pymysql.cursors.DictCursor  # ✅ retorna dict
-    )   
+        cursorclass=pymysql.cursors.DictCursor
+    )
