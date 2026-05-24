@@ -8,4 +8,4 @@ def get_connection():
         database="pi_grupo14",
         charset="utf8mb4",
         cursorclass=pymysql.cursors.DictCursor  # ✅ retorna dict
-    )
+    )   

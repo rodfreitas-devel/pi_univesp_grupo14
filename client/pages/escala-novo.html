@@ -109,7 +109,34 @@
                 </li>
 
                 <li>
-                  <a class="dropdown-item" href="#"> Lista </a>
+                  <a class="dropdown-item" href="{{ url_for('ferias_lista') }}">
+                    Lista
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- FALTAS (NOVO DROPDOWN) -->
+          <li class="nav-item">
+            <div class="dropdown">
+              <a
+                class="btn btn-dropdown-green dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                Faltas
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{{ url_for('faltas_novo') }}"
+                    >Novo cadastro</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ url_for('faltas_lista') }}"
+                    >Lista</a
+                  >
                 </li>
               </ul>
             </div>

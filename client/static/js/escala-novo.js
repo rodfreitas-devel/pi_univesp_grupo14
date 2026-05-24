@@ -1,74 +1,103 @@
-let jornadaAdicionada = false;
+let jornadas = [];
+let turnos = [];
 
+// -----------------------------
+// ADICIONAR JORNADA
+// -----------------------------
 function adicionarJornada() {
   const jornada = document.getElementById("jornada").value;
-  const container = document.getElementById("jornadaSelecionada");
 
-  if (!jornada) {
-    alert("Selecione uma jornada.");
-    return;
-  }
+  if (!jornada) return alert("Selecione uma jornada!");
 
-  if (jornadaAdicionada) {
-    alert("Só é permitido adicionar uma jornada.");
-    return;
-  }
+  jornadas = [jornada]; // apenas uma jornada (substitui a anterior)
 
-  container.innerHTML = `
-          <div class="alert alert-info d-flex justify-content-between align-items-center">
-            Jornada: ${jornada}
-            <button class="btn btn-sm btn-danger" onclick="removerJornada()">Remover</button>
-          </div>
-        `;
-
-  jornadaAdicionada = true;
+  document.getElementById("jornadaSelecionada").innerHTML =
+    `<span class="badge bg-primary">${jornada}</span>`;
 }
 
-function removerJornada() {
-  document.getElementById("jornadaSelecionada").innerHTML = "";
-  jornadaAdicionada = false;
-}
-
+// -----------------------------
+// ADICIONAR TURNO
+// -----------------------------
 function adicionarTurno() {
   const turno = document.getElementById("turno").value;
-  const lista = document.getElementById("listaTurnos");
 
-  if (!turno) {
-    alert("Selecione um turno.");
-    return;
+  if (!turno) return alert("Selecione um turno!");
+
+  if (turnos.includes(turno)) {
+    return alert("Este turno já foi adicionado!");
   }
 
-  const item = document.createElement("li");
-  item.className =
-    "list-group-item d-flex justify-content-between align-items-center";
-  item.innerHTML = `
-          ${turno}
-          <button class="btn btn-sm btn-danger" onclick="this.parentElement.remove()">Remover</button>
-        `;
+  turnos.push(turno);
 
-  lista.appendChild(item);
+  renderTurnos();
 }
 
+// -----------------------------
+// RENDER TURNOS
+// -----------------------------
+function renderTurnos() {
+  const lista = document.getElementById("listaTurnos");
+  lista.innerHTML = "";
+
+  turnos.forEach((t, index) => {
+    lista.innerHTML += `
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        ${t}
+        <button class="btn btn-sm btn-danger" onclick="removerTurno(${index})">
+          Remover
+        </button>
+      </li>
+    `;
+  });
+}
+
+// -----------------------------
+// REMOVER TURNO
+// -----------------------------
+function removerTurno(index) {
+  turnos.splice(index, 1);
+  renderTurnos();
+}
+
+// -----------------------------
+// SALVAR ESCALA
+// -----------------------------
 document.getElementById("formEscala").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const colaborador = document.getElementById("colaborador").value;
-  const turnos = document.querySelectorAll("#listaTurnos li");
 
   if (!colaborador) {
-    alert("Selecione um colaborador.");
-    return;
+    return alert("Selecione um colaborador!");
   }
 
-  if (!jornadaAdicionada) {
-    alert("Adicione uma jornada.");
-    return;
+  if (jornadas.length === 0) {
+    return alert("Adicione uma jornada!");
   }
 
   if (turnos.length === 0) {
-    alert("Adicione pelo menos um turno.");
-    return;
+    return alert("Adicione pelo menos um turno!");
   }
 
+  const escala = {
+    colaborador: colaborador,
+    jornada: jornadas,
+    turnos: turnos,
+  };
+
+  let escalas = JSON.parse(localStorage.getItem("escalas")) || [];
+
+  escalas.push(escala);
+
+  localStorage.setItem("escalas", JSON.stringify(escalas));
+
   alert("Escala salva com sucesso!");
+
+  // reset
+  document.getElementById("formEscala").reset();
+  document.getElementById("jornadaSelecionada").innerHTML = "";
+  document.getElementById("listaTurnos").innerHTML = "";
+
+  jornadas = [];
+  turnos = [];
 });

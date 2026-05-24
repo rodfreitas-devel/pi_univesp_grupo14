@@ -41,33 +41,22 @@ body {
 }
 
 /* INPUT */
-.form-control,
-.form-select {
+.form-control {
   height: 45px;
+  border-radius: 8px;
 }
 
-.form-label {
-  font-weight: 600;
-}
-
-/* ========================= */
-/* LARGURA PADRÃO (IMPORTANTE) */
-/* ========================= */
-
+/* LISTA CENTRALIZADA */
 .w-75 {
   width: 75% !important;
 }
 
-/* centraliza tabela igual busca */
 .table-responsive {
   width: 75%;
   margin: 0 auto;
 }
 
-/* ========================= */
 /* TABELA */
-/* ========================= */
-
 .table {
   background-color: white;
   border-radius: 10px;
@@ -80,59 +69,17 @@ body {
   color: white;
 }
 
-.table thead th {
-  padding: 14px;
-  border: none;
-}
-
 .table tbody td {
   padding: 14px;
   vertical-align: middle;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) > * {
-  background-color: #f8f9fa;
-}
-
 /* hover */
 .table tbody tr:hover {
   background-color: #f8f5ff;
-  transition: 0.2s;
 }
 
-/* alinhar ações à direita */
-.table td:last-child {
-  text-align: right;
-  white-space: nowrap;
-}
-
-/* ========================= */
 /* BOTÕES */
-/* ========================= */
-
-.btn-primary {
-  background-color: #6f42c1;
-  border: none;
-  border-radius: 8px;
-  padding: 5px 10px;
-}
-
-.btn-primary:hover {
-  background-color: #5a36a3;
-}
-
-/* EXCLUIR */
-.btn-danger {
-  background-color: #dc3545;
-  border: none;
-  border-radius: 8px;
-  padding: 5px 10px;
-}
-
-.btn-danger:hover {
-  background-color: #bb2d3b;
-}
-
 .btn-save {
   background-color: #198754;
   color: white;
@@ -141,7 +88,6 @@ body {
 
 .btn-save:hover {
   background-color: #157347;
-  color: white;
 }
 
 .btn-cancel {
@@ -152,31 +98,23 @@ body {
 
 .btn-cancel:hover {
   background-color: #bb2d3b;
-  color: white;
 }
 
-/* ========================= */
-/* MODAL */
-/* ========================= */
-
-.modal-content {
-  border-radius: 12px;
-}
-
-.modal-header {
+/* EDITAR / EXCLUIR */
+.btn-primary {
   background-color: #6f42c1;
-  color: white;
+  border: none;
 }
 
-.btn-close {
-  filter: brightness(0) invert(1);
+.btn-primary:hover {
+  background-color: #5a36a3;
 }
 
-/* ========================= */
-/* LISTA TURNOS */
-/* ========================= */
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
 
-.list-group-item {
-  border-radius: 6px;
-  margin-top: 5px;
+.btn-danger:hover {
+  background-color: #bb2d3b;
 }

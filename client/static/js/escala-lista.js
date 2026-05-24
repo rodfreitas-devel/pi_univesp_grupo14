@@ -1,145 +1,173 @@
-let escalas = [
-  {
-    id: 1,
-    colaborador: "João Silva",
-    jornada: "8h",
-    turnos: ["Manhã", "Tarde"],
-  },
-  {
-    id: 2,
-    colaborador: "Maria Souza",
-    jornada: "6h",
-    turnos: ["Noite"],
-  },
-];
+let escalas = [];
+let editIndex = null;
+let editTurnos = [];
 
-let escalaEditando = null;
-let turnosEdit = [];
+// -----------------------------
+// CARREGAR
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  carregarEscalas();
+});
 
-// LISTAR
-function loadEscalas() {
-  const table = document.getElementById("escalas-list");
-  table.innerHTML = "";
-
-  escalas.forEach((e) => {
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>
-        <strong>${e.colaborador}</strong><br>
-        Jornada: ${e.jornada}<br>
-        Turnos: ${e.turnos.join(", ")}
-      </td>
-      <td class="text-end">
-        <button class="btn btn-sm btn-primary me-2" onclick="editEscala(${e.id})">Editar</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteEscala(${e.id})">Excluir</button>
-      </td>
-    `;
-
-    table.appendChild(row);
-  });
+// -----------------------------
+// BUSCAR LOCALSTORAGE
+// -----------------------------
+function carregarEscalas() {
+  escalas = JSON.parse(localStorage.getItem("escalas")) || [];
+  render();
 }
 
-// BUSCA
-function filterEscalas() {
-  const q = document.getElementById("searchInput").value.toLowerCase();
+// -----------------------------
+// RENDER LISTA
+// -----------------------------
+function render() {
+  const tbody = document.getElementById("escalas-list");
+  tbody.innerHTML = "";
 
-  const filtradas = escalas.filter((e) =>
-    e.colaborador.toLowerCase().includes(q),
-  );
-
-  const table = document.getElementById("escalas-list");
-  table.innerHTML = "";
-
-  filtradas.forEach((e) => {
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>
-        <strong>${e.colaborador}</strong><br>
-        Jornada: ${e.jornada}<br>
-        Turnos: ${e.turnos.join(", ")}
-      </td>
-      <td class="text-end">
-        <button class="btn btn-sm btn-primary me-2" onclick="editEscala(${e.id})">Editar</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteEscala(${e.id})">Excluir</button>
-      </td>
+  if (escalas.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td class="text-center text-muted">
+          Nenhuma escala cadastrada
+        </td>
+      </tr>
     `;
-
-    table.appendChild(row);
-  });
-}
-
-// EXCLUIR
-function deleteEscala(id) {
-  if (confirm("Deseja excluir?")) {
-    escalas = escalas.filter((e) => e.id !== id);
-    loadEscalas();
+    return;
   }
+
+  escalas.forEach((e, index) => {
+    tbody.innerHTML += `
+      <tr>
+        <td>
+          <strong>${e.colaborador}</strong><br>
+          <small>
+            Jornada: ${e.jornada} <br>
+            Turnos: ${e.turnos.join(", ")}
+          </small>
+        </td>
+
+        <td class="text-end">
+          <button class="btn btn-primary btn-sm" onclick="editar(${index})">
+            Editar
+          </button>
+
+          <button class="btn btn-danger btn-sm" onclick="excluir(${index})">
+            Excluir
+          </button>
+        </td>
+      </tr>
+    `;
+  });
 }
 
+// -----------------------------
+// EXCLUIR
+// -----------------------------
+function excluir(index) {
+  if (!confirm("Deseja realmente excluir esta escala?")) return;
+
+  escalas.splice(index, 1);
+  localStorage.setItem("escalas", JSON.stringify(escalas));
+  carregarEscalas();
+}
+
+// -----------------------------
 // EDITAR
-function editEscala(id) {
-  escalaEditando = escalas.find((e) => e.id === id);
+// -----------------------------
+function editar(index) {
+  editIndex = index;
 
-  document.getElementById("editColaborador").value = escalaEditando.colaborador;
-  document.getElementById("editJornada").value = escalaEditando.jornada;
+  const e = escalas[index];
 
-  turnosEdit = [...escalaEditando.turnos];
+  document.getElementById("editColaborador").value = e.colaborador;
+  document.getElementById("editJornada").value = e.jornada;
 
-  renderTurnosEdit();
+  editTurnos = [...e.turnos];
+  renderEditTurnos();
 
-  new bootstrap.Modal(document.getElementById("editEscalaModal")).show();
+  const modal = new bootstrap.Modal(document.getElementById("editEscalaModal"));
+  modal.show();
 }
 
-// ADICIONAR TURNO
+// -----------------------------
+// ADICIONAR TURNO NO EDIT
+// -----------------------------
 function addTurnoEdit() {
   const turno = document.getElementById("editTurno").value;
 
-  if (turno && !turnosEdit.includes(turno)) {
-    turnosEdit.push(turno);
-    renderTurnosEdit();
+  if (!turno) return;
+
+  if (editTurnos.includes(turno)) {
+    return alert("Turno já adicionado!");
   }
+
+  editTurnos.push(turno);
+  renderEditTurnos();
 }
 
-// RENDER TURNOS
-function renderTurnosEdit() {
-  const lista = document.getElementById("editListaTurnos");
-  lista.innerHTML = "";
+// -----------------------------
+// RENDER TURNOS EDIT
+// -----------------------------
+function renderEditTurnos() {
+  const ul = document.getElementById("editListaTurnos");
+  ul.innerHTML = "";
 
-  turnosEdit.forEach((t, i) => {
-    const li = document.createElement("li");
-    li.className = "list-group-item d-flex justify-content-between";
-
-    li.innerHTML = `
-      ${t}
-      <button class="btn btn-sm btn-danger">X</button>
+  editTurnos.forEach((t, index) => {
+    ul.innerHTML += `
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        ${t}
+        <button class="btn btn-sm btn-danger" onclick="removeTurnoEdit(${index})">
+          X
+        </button>
+      </li>
     `;
-
-    li.querySelector("button").onclick = () => {
-      turnosEdit.splice(i, 1);
-      renderTurnosEdit();
-    };
-
-    lista.appendChild(li);
   });
 }
 
-// SALVAR
+// -----------------------------
+// REMOVER TURNO EDIT
+// -----------------------------
+function removeTurnoEdit(index) {
+  editTurnos.splice(index, 1);
+  renderEditTurnos();
+}
+
+// -----------------------------
+// SALVAR EDIT
+// -----------------------------
 document
   .getElementById("editEscalaForm")
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    escalaEditando.jornada = document.getElementById("editJornada").value;
-    escalaEditando.turnos = [...turnosEdit];
+    if (editIndex === null) return;
+
+    escalas[editIndex] = {
+      ...escalas[editIndex],
+      jornada: document.getElementById("editJornada").value,
+      turnos: editTurnos,
+    };
+
+    localStorage.setItem("escalas", JSON.stringify(escalas));
 
     bootstrap.Modal.getInstance(
       document.getElementById("editEscalaModal"),
     ).hide();
 
-    loadEscalas();
+    carregarEscalas();
   });
 
-// INIT
-loadEscalas();
+// -----------------------------
+// FILTRO (BUSCA)
+// -----------------------------
+function filterEscalas() {
+  const value = document.getElementById("searchInput").value.toLowerCase();
+
+  const rows = document.querySelectorAll("#escalas-list tr");
+
+  rows.forEach((row) => {
+    const text = row.innerText.toLowerCase();
+
+    row.style.display = text.includes(value) ? "" : "none";
+  });
+}
